@@ -9,12 +9,12 @@ class Solution(object):
 
 
         for i in range(1, len(nums)):
-            # if current_sum + nums[i] >= nums[i]:
-            #     current_sum = current_sum + nums[i]
-            # else:
-            #     current_sum = nums[i]
+            if current_sum + nums[i] >= nums[i]:
+                current_sum = current_sum + nums[i]
+            else:
+                current_sum = nums[i]
             # We can further optimize into single line of code
-            current_sum =max(nums[i], current_sum+nums[i])
+            # current_sum =max(nums[i], current_sum+nums[i])
 
             if current_sum > max_sum:
                 max_sum = current_sum
