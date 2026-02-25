@@ -14,9 +14,11 @@ class Solution(object):
             if nums[i] != val:
                 nums[k] = nums[i]
                 k += 1
+            else:
+                nums.append('_')
                 
         
-        for i in range(k, len(nums)):
-            nums[i] = '_'
+        # for i in range(k, len(nums)):
+        #     nums[i] = '_'
             
         return k
