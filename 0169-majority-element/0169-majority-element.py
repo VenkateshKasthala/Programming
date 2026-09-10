@@ -1,31 +1,19 @@
-class Solution(object):
-    def majorityElement(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        # First Attempt
-        c ={}
-        for i in nums:
-            if i in c:
-                c[i]=c[i]+1
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        current_leader = None
+        vote_balance = 0
+
+        for number in nums:
+            if vote_balance == 0:
+                current_leader = number
+
+            if number == current_leader:
+                vote_balance += 1
             else:
-                c[i]=1
-        return max(c, key=c.get)
+                vote_balance -= 1
 
+        return current_leader
 
-        ## Optimal Solution
-
-
-        for num in nums:
-            # If count reaches 0, we start fresh with a new candidate
-            if count == 0:
-                candidate = num
-            
-            # Increment if same as candidate, decrement if different
-            if num == candidate:
-                count += 1
-            else:
-                count -= 1
-        
-        return candidate
+# Synced seamlessly with LeetHub Pro
+# Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
+# Get it here: https://chromewebstore.google.com/detail/bcilpkkbokcopmabingnndookdogmbna
